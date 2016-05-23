@@ -10,14 +10,15 @@ var checkCountDown = 5;
 
 // Die you telkom
 (function (w, d, s) {
-  document.write('<!--');
-
-  var dgId = d.getElementById, dQs = d.querySelector;
+  d.write('<!--');
 
   // Just in case above function didn't work
   var checkIntrusiveAdsInterval = w.setInterval(function () {
-    var telkomTopAds = dgId('cfs_top_div');
-    var telkomBottomAds = dgId('cfs_div_2');
+    var telkomTopAds = d.getElementById('cfs_top_div');
+    var telkomBottomAds = d.getElementById('cfs_div_2');
+    var parent = telkomTopAds.parentNode;
+    var head = d.getElementsByTagName('head')[0];
+
     if ((telkomTopAds && telkomTopAds.length > 0) && (telkomBottomAds && telkomBottomAds.length > 0)) {
       // This is our content
       var content = telkomBottomAds.innerHTML;
@@ -27,13 +28,13 @@ var checkCountDown = 5;
       ourContentContainer.innerHTML = content;
 
       // We get it out of telkom's div
-      telkomBottomAds.parentNode.insertBefore(ourContentContainer, telkomBottomAds);
+      parent.insertBefore(ourContentContainer, telkomBottomAds);
 
       // And then we can remove all the telkom things
-      telkomTopAds.remove();
-      telkomBottomAds.remove();
-      dQs(s + '[src^="http://cfs.uzone.id"]').remove();
-      dQs(s + '[src^="http://cfs.u-ad.info"]').remove();
+      parent.removeChild(telkomTopAds);
+      parent.removeChild(telkomBottomAds);
+      head.removeChild(d.querySelector(s + '[src^="http://cfs.uzone.id"]'));
+      head.removeChild(d.querySelector(s + '[src^="http://cfs.u-ad.info"]'));
 
       // We than stop our interval
       w.clearInterval(checkIntrusiveAdsInterval);
