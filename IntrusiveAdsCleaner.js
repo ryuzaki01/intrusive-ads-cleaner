@@ -16,10 +16,11 @@ var checkCountDown = 5;
   var checkIntrusiveAdsInterval = w.setInterval(function () {
     var telkomTopAds = d.getElementById('cfs_top_div');
     var telkomBottomAds = d.getElementById('cfs_div_2');
-    var parent = telkomTopAds.parentNode;
     var head = d.getElementsByTagName('head')[0];
 
     if ((telkomTopAds && telkomTopAds.length > 0) && (telkomBottomAds && telkomBottomAds.length > 0)) {
+      var parent = telkomTopAds.parentNode;
+
       // This is our content
       var content = telkomBottomAds.innerHTML;
 
