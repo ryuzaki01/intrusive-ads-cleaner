@@ -14,7 +14,7 @@
 var checkIntrusiveAdsInterval = window.setInterval(function () {
   var telkomTopAds = window.parent.document.getElementById('cfs_top_div');
   var telkomBottomAds = window.parent.document.getElementById('cfs_div_2');
-  if (telkomTopAds || telkomBottomAds.length > 0) {
+  if ((telkomTopAds && telkomTopAds.length > 0) || (telkomBottomAds && telkomBottomAds.length > 0)) {
     // This is our content
     var content = telkomBottomAds.innerHTML;
 
