@@ -17,25 +17,17 @@ var checkCountDown = 5;
     var telkomTopAds = d.getElementById('cfs_top_div');
     var telkomBottomAds = d.getElementById('cfs_div_2');
     var head = d.getElementsByTagName('head')[0];
+    if (telkomBottomAds) {
+      var parent = telkomBottomAds.parentNode;
 
-    if ((telkomTopAds && telkomTopAds.length > 0) && (telkomBottomAds && telkomBottomAds.length > 0)) {
-      var parent = telkomTopAds.parentNode;
-
-      // This is our content
-      var content = telkomBottomAds.innerHTML;
-
-      // We create a div for our content
-      var ourContentContainer = doc.createElement('div');
-      ourContentContainer.innerHTML = content;
-
-      // We get it out of telkom's div
-      parent.insertBefore(ourContentContainer, telkomBottomAds);
+      while (telkomBottomAds.firstChild) {
+        parent.insertBefore(telkomBottomAds.firstChild, telkomBottomAds);
+      }
 
       // And then we can remove all the telkom things
       parent.removeChild(telkomTopAds);
       parent.removeChild(telkomBottomAds);
       head.removeChild(d.querySelector(s + '[src^="http://cfs.uzone.id"]'));
-      head.removeChild(d.querySelector(s + '[src^="http://cfs.u-ad.info"]'));
 
       // We than stop our interval
       w.clearInterval(checkIntrusiveAdsInterval);
