@@ -1,0 +1,54 @@
+{
+  "preset": "node-style-guide",
+  "fileExtensions": [".js"],
+  "maxErrors": null,
+
+  "disallowSpacesInFunction": null,
+  "requireTrailingComma": null,
+  "disallowEmptyBlocks": false,
+  "disallowMultipleLineStrings": true,
+  "disallowMultipleSpaces": true,
+  "disallowMultipleVarDecl": false,
+  "disallowOperatorBeforeLineBreak": [
+    "."
+  ],
+  "disallowPaddingNewlinesInBlocks": true,
+  "disallowYodaConditions": true,
+
+  "requireDollarBeforejQueryAssignment": true,
+  "requireDotNotation": true,
+  "requireLineFeedAtFileEnd": true,
+  "requirePaddingNewLinesAfterUseStrict": true,
+  "requirePaddingNewLinesBeforeExport": true,
+  "requirePaddingNewLinesBeforeLineComments": {"allExcept": "firstAfterCurly"},
+  "requireParenthesesAroundIIFE": true,
+  "requireSemicolons": true,
+  "requireSpaceBeforeKeywords": ["else", "while", "catch"],
+  "requireSpacesInAnonymousFunctionExpression": {
+    "beforeOpeningRoundBrace": true,
+    "beforeOpeningCurlyBrace": true
+  },
+  "requireSpacesInConditionalExpression": {
+    "afterTest": true,
+    "beforeConsequent": true,
+    "afterConsequent": true,
+    "beforeAlternate": true
+  },
+  "requireSpacesInForStatement": true,
+  "requireCamelCaseOrUpperCaseIdentifiers": false,
+  "validateAlignedFunctionParameters": {
+    "lineBreakAfterOpeningBraces": true,
+    "lineBreakBeforeClosingBraces": true
+  },
+  "validateParameterSeparator": ", ",
+  "maximumLineLength": 160,
+  "requireCurlyBraces": [
+    "if",
+    "else",
+    "for",
+    "while",
+    "do",
+    "try",
+    "catch"
+  ]
+}

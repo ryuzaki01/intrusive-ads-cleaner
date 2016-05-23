@@ -1,0 +1,36 @@
+{
+  "name": "intrusive-ads-cleaner",
+  "version": "0.0.7",
+  "description": "Simple telkom intrusive ads cleaner",
+  "main": "intrusiveAdsCleaner.min.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryuzaki01/intrusive-ads-cleaner.git"
+  },
+  "keywords": [
+    "intrusive",
+    "ads",
+    "telkom"
+  ],
+  "author": "Ihsan Fauzi Rahman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ryuzaki01/intrusive-ads-cleaner/issues"
+  },
+  "homepage": "https://github.com/ryuzaki01/intrusive-ads-cleaner#readme",
+  "dependencies": {
+    "del": "^2.2.0",
+    "dotenv": "^2.0.0",
+    "gulp": "^3.9.1",
+    "gulp-livereload": "^3.8.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.3"
+  }
+}
