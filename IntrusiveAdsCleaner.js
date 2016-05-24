@@ -5,9 +5,18 @@
  *  @author Ihsan Fauzi Rahman <shinji666mmc@gmail.com>
  */
 
-var win = window || global;
+var GLOBAL;
+try {
+  GLOBAL = window;
+} catch (e) {
+  GLOBAL = global;
+}
 
-var doc = (win.top || win.parent) ? (win.top.document || win.parent.document) : document;
+if (GLOBAL.GLOBAL !== GLOBAL) {
+  throw new Error('library cannot find the global object');
+}
+
+var doc = (GLOBAL.top || GLOBAL.parent) ? (GLOBAL.top.document || GLOBAL.parent.document) : document;
 var checkCountDown = 5;
 
 // Die you telkom
