@@ -5,7 +5,9 @@
  *  @author Ihsan Fauzi Rahman <shinji666mmc@gmail.com>
  */
 
-var doc = (window.top || window.parent) ? (window.top.document || window.parent.document) : document;
+var win = window || global;
+
+var doc = (win.top || win.parent) ? (win.top.document || win.parent.document) : document;
 var checkCountDown = 5;
 
 // Die you telkom
@@ -40,4 +42,4 @@ var checkCountDown = 5;
       checkCountDown--;
     }
   }, 3000);
-})(window, doc, 'script');
+})(win, doc, 'script');
