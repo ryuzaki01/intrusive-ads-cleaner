@@ -2,7 +2,7 @@
   "name": "intrusive-ads-cleaner",
   "version": "0.0.7",
   "description": "Simple telkom intrusive ads cleaner",
-  "main": "intrusiveAdsCleaner.min.js",
+  "main": "index.js",
   "directories": {
     "test": "test"
   },
