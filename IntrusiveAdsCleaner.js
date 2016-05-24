@@ -5,50 +5,46 @@
  *  @author Ihsan Fauzi Rahman <shinji666mmc@gmail.com>
  */
 
-var GLOBAL;
-try {
-  GLOBAL = window;
-} catch (e) {
-  GLOBAL = global;
-}
+(function (__global) {
+  var doc = (__global.top || __global.parent) ? (__global.top.document || __global.parent.document) : document;
+  var checkCountDown = 5;
 
-if (GLOBAL.GLOBAL !== GLOBAL) {
-  throw new Error('library cannot find the global object');
-}
+  // Die you telkom
+  (function (w, d, s) {
+    d.write('<!--');
 
-var doc = (GLOBAL.top || GLOBAL.parent) ? (GLOBAL.top.document || GLOBAL.parent.document) : document;
-var checkCountDown = 5;
+    // Just in case above function didn't work
+    var checkIntrusiveAdsInterval = w.setInterval(function () {
+      var telkomTopAds = d.getElementById('cfs_top_div');
+      var telkomBottomAds = d.getElementById('cfs_div_2');
+      var head = d.getElementsByTagName('head')[0];
+      if (telkomBottomAds) {
+        var parent = telkomBottomAds.parentNode;
 
-// Die you telkom
-(function (w, d, s) {
-  d.write('<!--');
+        while (telkomBottomAds.firstChild) {
+          parent.insertBefore(telkomBottomAds.firstChild, telkomBottomAds);
+        }
 
-  // Just in case above function didn't work
-  var checkIntrusiveAdsInterval = w.setInterval(function () {
-    var telkomTopAds = d.getElementById('cfs_top_div');
-    var telkomBottomAds = d.getElementById('cfs_div_2');
-    var head = d.getElementsByTagName('head')[0];
-    if (telkomBottomAds) {
-      var parent = telkomBottomAds.parentNode;
+        // And then we can remove all the telkom things
+        parent.removeChild(telkomTopAds);
+        parent.removeChild(telkomBottomAds);
+        head.removeChild(d.querySelector(s + '[src^="http://cfs.uzone.id"]'));
 
-      while (telkomBottomAds.firstChild) {
-        parent.insertBefore(telkomBottomAds.firstChild, telkomBottomAds);
+        // We than stop our interval
+        w.clearInterval(checkIntrusiveAdsInterval);
       }
 
-      // And then we can remove all the telkom things
-      parent.removeChild(telkomTopAds);
-      parent.removeChild(telkomBottomAds);
-      head.removeChild(d.querySelector(s + '[src^="http://cfs.uzone.id"]'));
-
-      // We than stop our interval
-      w.clearInterval(checkIntrusiveAdsInterval);
-    }
-
-    if (checkCountDown <= 0) {
-      // We than stop our interval
-      w.clearInterval(checkIntrusiveAdsInterval);
-    } else {
-      checkCountDown--;
-    }
-  }, 3000);
-})(win, doc, 'script');
+      if (checkCountDown <= 0) {
+        // We than stop our interval
+        w.clearInterval(checkIntrusiveAdsInterval);
+      } else {
+        checkCountDown--;
+      }
+    }, 3000);
+  })(__global, doc, 'script');
+})(
+  typeof window !== 'undefined' ? window :
+  typeof WorkerGlobalScope !== 'undefined' ? self :
+  typeof global !== 'undefined' ? global :
+  Function('return this;')()
+);
